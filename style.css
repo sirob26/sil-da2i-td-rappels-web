@@ -1,0 +1,112 @@
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+	font-family: Arial;
+}
+body {
+	display : table;
+	width: 100%;
+	margin: 0px;
+}
+footer {
+	display : table-row;
+	height: 20px;
+}
+
+article, aside{
+	padding-left: 15px;
+}
+
+header{
+	background-color: black;
+	color: white;
+}
+
+h1{
+	margin: 0px;
+	padding: 15px;
+}
+
+header{
+    padding: 15px;
+}
+
+#principal_title{
+	background: linear-gradient(black,white 30px);
+}
+
+#info_general{
+	padding-top: 15px; 
+}
+
+#info_general div{
+	padding-left: 50px;
+	max-width: 50%;
+	display: inline-block;
+}
+
+#info_general li{
+	list-style-type: none;
+}
+
+#info_general ul{
+	padding: 0px;
+}
+
+a, a:visited{
+	color: rgb(120,120,120);
+	text-decoration: none;
+	padding: 12px;
+	margin: 15px;
+	background-color: white;
+	border-radius: 5px;
+}
+
+ a:hover{
+ 	color: rgb(100,100,100);
+ }
+ 
+
+header a, header a:visited{
+	color: black;
+	text-decoration: none;
+	padding: 12px;
+	background-color: grey;
+	border-radius: 5px;
+}
+
+header a:hover{
+	background-color: rgb(120,120,120);
+}
+
+
+ 
+footer{
+	background-color: rgb(230,230,230);
+}
+
+#real img, #acteur img{
+	border-radius: 15px;
+}
+
+article img{
+	max-height: 30vw;
+}
+
+figure{
+	display: inline-block;
+}
+
+figure{
+	display: inline-block;
+}
+
+.not_phone{
+	width: 80vw;
+}
+
+@media (min-width: 200px) and (max-width: 600px){
+	.not_phone{
+		display: none;
+	}
+}
