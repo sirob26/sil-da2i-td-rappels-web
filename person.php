@@ -1,4 +1,6 @@
 <?php
+    use Models\Person;
+
     function getDataBase(){
         $dsn = 'mysql:host=localhost;dbname=LP_dev;charset=utf8';
         $result = new PDO($dsn, 'root', '');
@@ -13,22 +15,24 @@
     $dbh = getDataBase();
     $id = $_GET['person'];
     
-    $reponse = $dbh->query('SELECT * FROM person WHERE id ='.$id);
-    $person = $reponse->fetch();
+    include 'Models\Person.php';
+    $person = new Person();
+    $thisPerson = $person->getBaseInfo($id);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-    	<title><?php echo $person['lastname']?></title>
+    	<title><?php echo $thisPerson['lastname']?></title>
     	<link rel="stylesheet" type="text/css" href="style.css">
     	<meta charset="UTF-8">
     </head>
     <body>
     	<?php getBlock('header.php'); ?>
         <section id="info_general">
+        	<h2><?php echo $thisPerson['lastname']." ".$thisPerson['firstname']?></h2>
         	<p>Metier : 
         	<?php 
-        	   $reponse = $dbh->query('SELECT role FROM movieHasPerson WHERE idPerson = '.$person['id']);
+        	   $reponse = $dbh->query('SELECT role FROM movieHasPerson WHERE idPerson = '.$thisPerson['id']);
                $data = $reponse->fetchAll();
                foreach ($data as $row) {
                    if ($row['role']="actor") {
@@ -40,10 +44,10 @@
                }
             ?>
             </p>
-        	<p>Naissance : <?php echo $person['birthDate']?></p>
+        	<p>Naissance : <?php echo $thisPerson['birthDate']?></p>
         </section>
         <?php 
-            $reponse = $dbh->query('SELECT * FROM Picture WHERE id IN (SELECT idPicture FROM personhaspicture WHERE idPerson = '.$person['id'].')');
+            $reponse = $dbh->query('SELECT * FROM Picture WHERE id IN (SELECT idPicture FROM personhaspicture WHERE idPerson = '.$thisPerson['id'].')');
             $data = $reponse->fetch();
         ?>
         <figure>
@@ -53,7 +57,7 @@
         
         <section>
         	Biographie
-        	<p><?php echo $person['biography']?>
+        	<p><?php echo $thisPerson['biography']?>
         </section>
         <?php include 'footer.php';?>
 	</body>
