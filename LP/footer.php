@@ -1,0 +1,1 @@
+	<footer>Designed by Boris Henrot</footer>
