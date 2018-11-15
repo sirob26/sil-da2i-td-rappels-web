@@ -1,5 +1,4 @@
 <?php
-namespace Models;
 
 class Director extends Person
 {
@@ -10,7 +9,7 @@ class Director extends Person
     }
     
     public function getAllDirectors(){
-        $reponse = getDataBase()->query('SELECT  * FROM person WHERE id IN (SELECT DISTINCT idPerson FROM moviehasperson WHERE role = "director")');
+        $reponse = $this->getDataBase()->query('SELECT  * FROM person WHERE id IN (SELECT DISTINCT idPerson FROM moviehasperson WHERE role = "director")');
         $data = $reponse->fetchAll();
         return $data;
     }

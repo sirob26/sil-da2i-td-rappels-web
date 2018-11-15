@@ -1,5 +1,4 @@
 <?php
-    use Models\Person;
 
     function getDataBase(){
         $dsn = 'mysql:host=localhost;dbname=LP_dev;charset=utf8';
@@ -15,7 +14,7 @@
     $dbh = getDataBase();
     $id = $_GET['person'];
     
-    include 'Models\Person.php';
+    require 'Models\Person.php';
     $person = new Person();
     $thisPerson = $person->getBaseInfo($id);
 ?>
