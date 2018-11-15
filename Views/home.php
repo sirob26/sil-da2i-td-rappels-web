@@ -2,11 +2,11 @@
 <html lang="fr">
     <head>
     	<title>Accueil</title>
-    	<link rel="stylesheet" type="text/css" href="style.css">
+    	<link rel="stylesheet" type="text/css" href="Views/style.css">
     	<meta charset="UTF-8">
     </head>
     <body>
-    	<?php getBlock('header.php'); ?>
+    	<?php getBlock('Views/header.php'); ?>
     	<h2>Films</h2>
     	<?php 
         	foreach ($data['Movies'] as $movie){
@@ -25,6 +25,6 @@
         	    echo ("<a href=\"person.php?person=".$actor['id']."\">".$actor['firstname']." ".$actor['lastname']."</a><br>");
         	}
     	?>
-    	<?php getBlock('footer.php') ;?>
+    	<?php getBlock('Views/footer.php') ;?>
     </body>
 </html>

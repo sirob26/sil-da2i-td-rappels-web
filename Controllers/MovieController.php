@@ -5,7 +5,6 @@ class MovieController
     static function go(int $id){
         require 'Models\Movies.php';
         
-        $id = $_GET['id'];
         $movies = new Movies();
         
         $thisMovie = [];
