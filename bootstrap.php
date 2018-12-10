@@ -14,7 +14,6 @@ $racine = "/LP/sil-da2i-td-rappels-web/";
 $racineSize = strlen($racine);
 $uri = explode("/", substr($_SERVER['REQUEST_URI'], $racineSize));
 
-
 switch ($uri[0]) {
     case "index":
         require 'Controllers\HomeController.php';

@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
     	<title><?php echo $data['movie']['title']?></title>
-    	<link rel="stylesheet" type="text/css" href="Views/style.css">
+    	<link rel="stylesheet" type="text/css" href="../Views/style.css">
     	<meta charset="UTF-8">
     </head>
     <body>

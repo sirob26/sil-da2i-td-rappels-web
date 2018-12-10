@@ -3,7 +3,7 @@
     <?php 
         foreach ($data as $row) {
             echo ("<figure>
-            	<img src=\"". $row['path']."\" alt=\"".$row['legend']."\">
+            	<img src=\"..\\". $row['path']."\" alt=\"".$row['legend']."\">
             	<figcaption>".$row['legend']."</figcaption>
                  </figure>");
         }
