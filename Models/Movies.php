@@ -2,40 +2,32 @@
 
 class Movies
 {
-    private function getDataBase(){
-        $dsn = 'mysql:host=localhost;dbname=LP_dev;charset=utf8';
-        $result = new PDO($dsn, 'root', '');
-        return $result;
+    
+    private $db;
+    function __construct(){
+        require 'Classes\DB.php';
+        $this->db = new DB();
     }
     
     public function getAllMovies(){
-        $reponse = $this->getDataBase()->query('SELECT * FROM movie');
-        $data = $reponse->fetchAll();
-        return $data;
+        return $this->db->getAll("movie");
     }
     
     public function getBaseInfo(int $id){
-        $reponse = $this->getDataBase()->query('SELECT  * FROM movie WHERE id ='.$id);
-        $data = $reponse->fetch();
-        return $data;
+        return $this->db->getOne("movie", $id);
     }
     
     public function getImg(int $id){
-        $reponse = $this->getDataBase()->query('SELECT * FROM picture WHERE id IN(SELECT idPicture FROM movieHasPicture WHERE idMovie ='.$id.' )');
-        $data = $reponse->fetchAll();
-        return $data;
+        return $this->db->getImgFrom("moviehaspicture", $id);
     }
     
     public function getDirector(int $id){
-        $reponse = $this->getDataBase()->query('SELECT * FROM Picture WHERE id IN (SELECT idPicture FROM personhaspicture WHERE idPerson in (SELECT idPerson FROM moviehasperson WHERE role="director" AND idMovie ='.$id.') )');
-        $data = $reponse->fetch();
-        return $data;
+        return $this->db->getPersonFromMovie("director", $id);
+       
     }
     
-    public function getActors($id) {
-        $reponse = $this->getDataBase()->query('SELECT * FROM Picture WHERE id IN (SELECT idPicture FROM personhaspicture WHERE idPerson in (SELECT idPerson FROM moviehasperson WHERE role="actor" AND idMovie ='.$id.') )');
-        $data = $reponse->fetchAll();
-        return $data;
+    public function getActors(int $id) {
+        return $this->db->getPersonFromMovie("actor", $id);
     }
     
 }

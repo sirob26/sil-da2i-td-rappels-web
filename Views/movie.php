@@ -23,7 +23,7 @@
     
     		<aside id="real">
     			<h2>Réalisateur</h2>
-    			<?php 
+    			<?php
     			     getBlock('Views/directorFigure.php', $data['director']);
     		    ?>
     		</aside>

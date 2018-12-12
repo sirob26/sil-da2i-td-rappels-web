@@ -1,4 +1,5 @@
 <?php
+
 function getDataBase(){
     $dsn = 'mysql:host=localhost;dbname=LP_dev;charset=utf8';
     $result = new PDO($dsn, 'root', '');
@@ -27,6 +28,16 @@ switch ($uri[0]) {
         }
         else {
             echo "Id films incorrecte";;
+        }
+    break;
+    
+    case "actor":
+        require 'Controllers\ActorController.php';
+        if(($uri[1])){
+            ActorController::go($uri[1]);
+        }
+        else {
+            echo "Id Acteur incorrecte";;
         }
     break;
     

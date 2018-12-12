@@ -1,4 +1,8 @@
-<figure>
-	<img src="..\<?php echo $data['path']?>" alt="Réalisateur : <?php echo $data['legend']?>">
-	<figcaption><?php echo $data['legend']?></figcaption>
-</figure>
+<?php
+foreach ($data as $row) {
+    echo ("<figure>
+            <a href=\"person.php?person=\"><img src=\"..\\". $row['path']."\" alt=\"Directeur : ".$row['legend']."\"></a>
+            <figcaption>".$row['legend']."</figcaption>
+        </figure>");
+}
+?>

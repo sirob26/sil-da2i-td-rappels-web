@@ -13,5 +13,11 @@ class Actor extends Person
         $data = $reponse->fetchAll();
         return $data;
     }
+    
+    public function getBaseInfo(int $id){
+        $reponse = $this->getDataBase()->query('SELECT  * FROM actor WHERE id ='.$id);
+        $data = $reponse->fetch();
+        return $data;
+    }
 }
 
