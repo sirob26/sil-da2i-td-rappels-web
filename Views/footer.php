@@ -2,10 +2,20 @@
     <script>
         // on attend que le document soit complètement construit
         $(document).ready(function() {
-            $('aside').hide(2000);
-            $('img').fadeOut(3000);
-            $('header')
-                .slideUp(500)
-                .slideDown(1500);
+
+            $('#toggleMenu').on('click', function(){
+                $('header')
+                    .slideUp(500).
+                slideDown(1500);
+            });
+
+            $('#hideAside').on('click', function(){
+                $('aside').hide(2000);
+            });
+
+            $('#fadeImg').on('click', function(){
+                $('img').fadeOut(3000);
+            });
+
         });
     </script>
