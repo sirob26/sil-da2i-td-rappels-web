@@ -2,8 +2,7 @@
 <html lang="fr">
     <head>
     	<title>Accueil</title>
-    	<link rel="stylesheet" type="text/css" href="Views/style.css">
-    	<meta charset="UTF-8">
+        <?php getBlock('Views/head.php'); ?>
     </head>
     <body>
     	<?php getBlock('Views/header.php'); ?>
